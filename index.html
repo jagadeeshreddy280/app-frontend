@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+  </head>
+
+  <body>
+    <form name="userInput" method="post" action="">
+      <h1>Features</h1>
+      <p>Please choose a feature to generate Logging</p>
+      <select id="myUserAction">
+        <option value="">Select</option>
+        <option value="register">Register</option>
+        <option value="registerError">Register with Error</option>
+        <option value="login">Login</option>
+        <option value="loginError">Login with Error</option>
+        <option value="product">Choose Product</option>
+        <option value="productError">Choose Product with Error</option>
+        <option value="addToCart">Add to Cart</option>
+        <option value="addToCartError">Add to Cart with Error</option>
+        <option value="shipping">Shipping Details</option>
+        <option value="shippingError">Shipping Details with Error</option>
+        <option value="payment">Payment Details</option>
+        <option value="paymentError">Payment Details with Error</option>
+        <option value="transaction">Transaction</option>
+        <option value="transactionError">Transaction with Error</option>
+        <option value="random">Random in loop</option>
+        <option value="randomError">Random with error</option>
+      </select>
+      <h1>Iterations</h1>
+      <p>Please choose the number of times to generate logging</p>
+      <select id="myIterations">
+        <option value="">Select</option>
+        <option value="one">1</option>
+        <option value="five">5</option>
+        <option value="ten">10</option>
+        <option value="twenty">20</option>
+        <option value="fifty">50</option>
+        <option value="hundred">100</option>
+      </select>
+      <h1>Product</h1>
+      <p>Please choose a product</p>
+      <select id="myProduct">
+        <option value="">Select</option>
+        <option value="tv">TV</option>
+        <option value="mobile">Mobile Phone</option>
+        <option value="music">Music System</option>
+        <option value="watch">Watch</option>
+        <option value="jwellery">Jwellery</option>
+      </select>
+      <br />
+      <br />
+      <input name="submitForm" type="submit" />
+      <p id="mes"></p>
+    </form>
+    <script >
+document.userInput.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  // Get selected values from dropdowns
+  var selectedUserAction = document.getElementById("myUserAction").value;
+  var selectedIterations = document.getElementById("myIterations").value;
+  var selectedProduct = document.getElementById("myProduct").value;
+  //   console.log("Selected Befroe Iterations:", selectedIterations);
+
+  switch (selectedIterations) {
+    case "one":
+      selectedIterations = 1;
+      break;
+    case "five":
+      selectedIterations = 5;
+      break;
+    case "ten":
+      selectedIterations = 10;
+      break;
+    case "twenty":
+      selectedIterations = 20;
+      break;
+    case "fifty":
+      selectedIterations = 50;
+      break;
+    case "hundred":
+      selectedIterations = 100;
+      break;
+    default:
+      selectedIterations = 0;
+      break;
+  }
+
+  async function getLogs() {
+    let res = await fetch(
+      `http://44.200.10.145:8092/logs?action=${selectedUserAction}&iteration=${selectedIterations}&product=${selectedProduct}`
+    );
+    let data = await res.json();
+    console.log(data);
+    if (data) {
+      document.getElementById("mes").innerHTML =
+        "Logs Added Successfully!!!...";
+    } else {
+      document.getElementById("mes").innerHTML = "Something went wrong!!!...";
+    }
+  }
+  getLogs();
+
+  // Display the selected values
+  console.log("Selected User Action:", selectedUserAction);
+  console.log("Selected Iterations:", selectedIterations);
+  console.log("Selected Product:", selectedProduct);
+});
+
+    </script>
+  </body>
+</html>

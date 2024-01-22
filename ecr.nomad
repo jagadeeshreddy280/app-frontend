@@ -6,6 +6,10 @@ job "frontend-logs" {
       driver = "docker"
       config {
         image = "051650638025.dkr.ecr.us-east-1.amazonaws.com/avaloq:10"
+        auth {
+           username = "AWS"
+           password = "051650638025.dkr.ecr.us-east-1.amazonaws.com"
+        }
       }       
       resources {
         network {

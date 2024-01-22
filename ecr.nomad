@@ -2,7 +2,7 @@ job "frontend-logs" {
     datacenters = ["dc1"]
     group "frontend" {
         count = 1 
-    task "f-logs" {
+      task "f-logs" {
       driver = "docker"
       config {
         image = "051650638025.dkr.ecr.us-east-1.amazonaws.com/avaloq:10"

@@ -5,7 +5,7 @@ job "frontend-logs" {
     task "f-logs" {
       driver = "docker"
       config {
-        image = "051650638025.dkr.ecr.us-east-1.amazonaws.com/avaloq:${IMAGE_TAG}"
+        image = "051650638025.dkr.ecr.us-east-1.amazonaws.com/avaloq:10"
       }       
       resources {
         network {

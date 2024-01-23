@@ -24,7 +24,7 @@ job "java-logs" {
             }
       constraint {
         attribute = "${attr.unique.hostname}"
-        value     = "ip-172-31-85-30.ec2.internal"  # Replace with the actual node name you want to target
+        value     = "ip-172-31-87-234"  # Replace with the actual node name you want to target
       }            
         }
         }

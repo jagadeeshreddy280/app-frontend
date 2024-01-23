@@ -1,4 +1,4 @@
-job "frontend-logs" {
+job "frontend-log" {
     datacenters = ["dc1"]
     group "frontend" {
         count = 1 

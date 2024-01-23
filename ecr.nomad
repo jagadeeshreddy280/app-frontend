@@ -6,6 +6,10 @@ job "frontend-logs" {
       driver = "docker"
       config {
         image = "jagadeesh280/app:latest"
+        auth {
+      username = "jagadeeshbhavanam@gmail.com"
+      password = "jagadeesh280"
+    }
       }       
       resources {
         network {

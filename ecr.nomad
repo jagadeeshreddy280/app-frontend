@@ -20,4 +20,5 @@ job "frontend-log" {
       }
     }        
     }
-}        
+}
+}

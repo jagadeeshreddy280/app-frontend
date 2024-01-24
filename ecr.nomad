@@ -1,3 +1,9 @@
+variable "image_tag" {
+  type        = string
+  description = "Docker image tag to deploy."
+  default     = "20"
+}
+
 job "frontend-logs" {
     datacenters = ["dc1"]
     group "frontend" {
@@ -5,7 +11,7 @@ job "frontend-logs" {
     task "f-logs" {
       driver = "docker"
       config {
-        image = "jagadeesh280/app:20"
+        image = "jagadeesh280/app:${var.image_tag}"
 auth {
       username = "jagadeeshbhavanam@gmail.com"
       password = "jagadeesh280"

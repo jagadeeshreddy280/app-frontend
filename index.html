@@ -88,7 +88,7 @@ document.userInput.addEventListener("submit", function (event) {
 
   async function getLogs() {
     let res = await fetch(
-      `http://3.80.182.57:8092/logs?action=${selectedUserAction}&iteration=${selectedIterations}&product=${selectedProduct}`
+      `http://3.80.18.57:8092/logs?action=${selectedUserAction}&iteration=${selectedIterations}&product=${selectedProduct}`
     );
     let data = await res.json();
     console.log(data);

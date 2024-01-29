@@ -85,6 +85,15 @@ Nomad ec2:
 ------------
 Trigger jenkins job automatically whenever any changes in GitHub:-
 
+Need to connect GIthub to jenkins:
+
+1.go to settings-->developer settings-->token-->new token (tick all boxes)-->create
+
+2.copy token use as password
+
+jenkins:
+ghp_Lmxn7epcRkeAoU7wPXdHuAwl1z
+
 IN Jenkins:
 
 1.create new Freestyle job --> GitHub project --> paste git hub url https://github.com/jagadeeshreddy280/app-frontend.git

@@ -1,5 +1,5 @@
 ****Note:jenkins & nomad running on different ec2
-         allow 4646 port for nomad & 8080 port for jenkins
+         allow 4646 port for nomad & 8080 port for jenkins 
 
 jenkins installation:
 

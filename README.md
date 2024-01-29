@@ -82,3 +82,33 @@ Nomad ec2:
 1.copy publicip:4646 on browser 
 
 
+
+Trigger jenkins job automatically whenever any changes in GitHub
+
+------------------------------------------------------------------
+IN Jenkins:
+
+1.create new Freestyle job --> GitHub project --> paste git hub url https://github.com/jagadeeshreddy280/app-frontend.git
+
+2.scm --> click Git --> give cred --> branch main or master
+
+3.click on Github hook trigger for GITSCM option --> save
+
+IN GITHUB:
+
+1.Go to repository 
+
+2.Inside repo --> settings -->click webhooks -->click add webhooks
+
+3.Copy Jenkins url like http://2.33.344.44:8080 and Add /github-webhook/
+
+     Example: http://35.154.114.196:8080/github-webhook/
+     
+4. Add in Payload URL --> save it.
+
+5. Change anything or push any file into git repo we can see job is triggerd automatically.
+
+
+links:
+
+https://www.devopsschool.com/blog/how-to-build-when-a-change-is-pushed-to-github-in-jenkins/

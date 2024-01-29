@@ -31,7 +31,7 @@ jenkins ec2:
 1.Install jenkins,Docker,install nomad but dont run,git
 2.sudo apt install docker.io
 3.sudo systemctl enable docker
-4.sudo systemctl start docker
+4.sudo systemctl start docker 
 5.sudo systemctl status docker
 6.sudo systemctl status jenkins
 7.sudo apt-get update

@@ -8,7 +8,7 @@ environment {
 stages{
 stage('GIT'){
 steps{
- checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jagadeeshreddy280/app-frontend.git']]]) 
+checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Gitlogin', url: 'https://github.com/jagadeeshreddy280/app-frontend.git']])
 }
 }
 stage('Docker Image Build'){
@@ -43,7 +43,7 @@ environment {
 stages{
 stage('GIT'){
 steps{
-checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Git', url: 'https://github.com/jagadeeshreddy280/app-frontend.git']])
+checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Gitlogin', url: 'https://github.com/jagadeeshreddy280/app-frontend.git']])
 }
 }
 stage('Docker Image Build'){
@@ -70,7 +70,7 @@ sh  "sed -i 's+jagadeesh280/app.*+jagadeesh280/app:${BUILD_NUMBER}\"+g' ecr.noma
 sh  "cat ecr.nomad"
 sh  "git add ecr.nomad"
 sh  "git commit -m 'update the dockerimage with new tag:${IMAGE_TAG}'"
-withCredentials([gitUsernamePassword(credentialsId: 'Git', gitToolName: 'Default')]) {
+withCredentials([gitUsernamePassword(credentialsId: 'Gitlogin', gitToolName: 'Default')]) {
     sh  "git push git@github.com:jagadeeshreddy280/app-frontend.git HEAD:main"
 }
 }
@@ -101,7 +101,7 @@ pipeline {
     stages {
         stage('GIT'){
           steps{
-          checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jagadeeshreddy280/app-frontend.git']]]) 
+checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Gitlogin', url: 'https://github.com/jagadeeshreddy280/app-frontend.git']])
 }
 }
         stage('Deploy To Nomad') {

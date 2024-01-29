@@ -82,10 +82,9 @@ Nomad ec2:
 1.copy publicip:4646 on browser 
 
 
+------------
+Trigger jenkins job automatically whenever any changes in GitHub:-
 
-Trigger jenkins job automatically whenever any changes in GitHub
-
-------------------------------------------------------------------
 IN Jenkins:
 
 1.create new Freestyle job --> GitHub project --> paste git hub url https://github.com/jagadeeshreddy280/app-frontend.git

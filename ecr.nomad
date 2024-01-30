@@ -5,7 +5,7 @@ job "frontend-logs" {
     task "f-logs" {
       driver = "docker"
       config {
-        image = "jagadeesh280/app:21"
+        image = "jagadeesh280/app:211"
 auth {
       username = "jagadeeshbhavanam@gmail.com"
       password = "jagadeesh280"
